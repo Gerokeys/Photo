@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const menuOpen = document.querySelector(".menu-open");
   const menuClose = document.querySelector(".menu-close");
+  const navLinks = document.querySelectorAll(".menu-items a");
 
   let isOpen = false;
   const defaultEase = "power4.inOut";
@@ -24,6 +25,12 @@ document.addEventListener("DOMContentLoaded", function () {
   menuClose.addEventListener("click", function () {
     if (!isOpen) return;
     closeMenu();
+  });
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      closeMenu();
+    });
   });
 
   const openMenu = () => {
@@ -113,11 +120,11 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 });
 
-window.addEventListener('scroll', () => {
-  const navbar = document.querySelector('.navbar');
+window.addEventListener("scroll", () => {
+  const navbar = document.querySelector(".navbar");
   if (window.scrollY > 50) {
-      navbar.classList.add('scrolled');
+    navbar.classList.add("scrolled");
   } else {
-      navbar.classList.remove('scrolled');
+    navbar.classList.remove("scrolled");
   }
 });
