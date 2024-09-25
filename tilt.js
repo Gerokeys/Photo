@@ -1,4 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const lenis = new Lenis();
+
+  lenis.on("scroll", (e) => {
+    console.log(e);
+  });
+
+  lenis.on("scroll", ScrollTrigger.update);
+
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+  });
+
+  gsap.ticker.lagSmoothing(0);
+
   const menuImgContainer = document.querySelector(".menu-img");
   const images = document.querySelectorAll(".menu-img img"); // Use querySelectorAll to select all images
 
